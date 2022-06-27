@@ -1,0 +1,20 @@
+.tabview{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-head{
+    height: 52px;
+    width: 100%;
+    filter: var(--dropshadow2); 
+    background-color: var(--white);
+
+}
+
+.tab-body{
+    width: 102.5%;
+    background-color: transparent;
+    flex: 1;
+    overflow: auto;
+}
