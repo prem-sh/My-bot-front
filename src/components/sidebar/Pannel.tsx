@@ -8,7 +8,7 @@ const Pannel = (props:any) => {
 
     const {setActiveTab} = props;
 
-    const [profile, setProfile] = useState({picture : "https://statinfer.com/wp-content/uploads/dummy-user.png", name: "User Name"});
+    const [profile, setProfile] = useState({picture : profilePicture, name: "User Name"});
     const [totalValue, setTotalValue] = useState({currency:"$",value:"00000"});
     const [searchBarText, setSearchBarText] = useState("");
 
