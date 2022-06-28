@@ -1,18 +1,31 @@
 import "./sidebar.scss";
 
 import profilePicture from "../../images/prem.png";
+import { useState } from "react";
 
-const Pannel = () => {
+
+const Pannel = (props:any) => {
+
+    const {setActiveTab} = props;
+
+    const [profile, setProfile] = useState({picture : "https://statinfer.com/wp-content/uploads/dummy-user.png", name: "User Name"});
+    const [totalValue, setTotalValue] = useState({currency:"$",value:"00000"});
+    const [searchBarText, setSearchBarText] = useState("");
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>)=>{
+        setSearchBarText(e.target.value) 
+    }
+
     return(
         <div className={"pannel"}>
             <div className="profile">
-                <img src={profilePicture} alt="PK" />
+                <img src={profile.picture} alt="PK" />
                 <div className = "name-container">
-                    <p className="name">Premkumar A</p>
-                    <p className="total_value">$ 85784.89</p>
+                    <p className="name">{profile.name}</p>
+                    <p className="total_value">{totalValue.currency+' '+ totalValue.value}</p>
                 </div>
             </div>
-            <input type="text" name="filter-list" id="filter-list" onInput={(e)=>console.log(e)} value={"Freedom"}/>
+            <input type="text" name="filter-list" id="filter-list" onInput={(e:React.ChangeEvent<HTMLInputElement>)=>handleSearch(e)} value={searchBarText}/>
             <div className="tab_box">
                 <button className="tab_button active">
                     <svg width="24" height="24" viewBox="0 0 24 24"><path d="M13,19H14A1,1 0 0,1 15,20H22V22H15A1,1 0 0,1 14,23H10A1,1 0 0,1 9,22H2V20H9A1,1 0 0,1 10,19H11V17H4A1,1 0 0,1 3,16V12A1,1 0 0,1 4,11H20A1,1 0 0,1 21,12V16A1,1 0 0,1 20,17H13V19M4,3H20A1,1 0 0,1 21,4V8A1,1 0 0,1 20,9H4A1,1 0 0,1 3,8V4A1,1 0 0,1 4,3M9,7H10V5H9V7M9,15H10V13H9V15M5,5V7H7V5H5M5,13V15H7V13H5Z" /></svg>

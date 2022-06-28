@@ -1,7 +1,8 @@
 import "./sidebar.scss";
 import Listitem from "./Listitem";
 
-const Listview  = () => {
+const Listview  = (props:any) => {
+    const {activeTab} = props;
     return(
         <div className={"listview"}>
             <Listitem />
